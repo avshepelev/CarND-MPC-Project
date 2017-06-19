@@ -3,6 +3,35 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Implementation
+
+#### State and Actuators
+The state consists of 8 components
+1. X - Vehicle X position
+2. Y - Vehicle Y position
+3. ψ (Psi) - Vehicle heading relative to global X axis
+4. V - Vehicle forward velocity
+5. Cross track error - Lateral error between the desired trajectory and the vehicle's position
+6. Psi Error - Difference between the current and desired vehicle heading
+
+The actuators are:
+1. Delta - Vehicle steering angle
+2. Acceleration - Vehicle acceleration
+
+
+#### Update Equations
+
+- x = x + v * cos(ψ) * dt
+- y = y + v * sin(ψ) * dt
+- ψ = ψ + ​v/L​f​​​​v​ * δ * dt
+- v = v + a * dt
+
+### Timestep Length and Elapsed Duration (N & dt)
+A value of 30 was chosen for N (number of timesteps) and 0.05 for dt (duration between timesteps). This gives the vehicle a 1.5 sec "lookahead", which I felt was adequate.
+
+### Handling Latency
+The combination of parameters above allowed the controller to handle 100us latency.
+
 ## Dependencies
 
 * cmake >= 3.5
