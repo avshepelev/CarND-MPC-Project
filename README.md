@@ -13,6 +13,8 @@ The state consists of 8 components
 4. V - Vehicle forward velocity
 5. Cross track error - Lateral error between the desired trajectory and the vehicle's position
 6. Psi Error - Difference between the current and desired vehicle heading
+7. Delta - Vehicle steering angle
+8. Acceleration - Vehicle acceleration
 
 The actuators are:
 1. Delta - Vehicle steering angle
@@ -27,7 +29,7 @@ The actuators are:
 - v = v + a * dt
 
 ### Timestep Length and Elapsed Duration (N & dt)
-A value of 30 was chosen for N (number of timesteps) and 0.05 for dt (duration between timesteps). This gives the vehicle a 1.5 sec "lookahead", which I felt was adequate.
+A value of 30 was chosen for N (number of timesteps) and 0.05 for dt (duration between timesteps). This gives the vehicle a 1.5 sec "lookahead", which I felt was adequate. N values of 10 and 20 were also tried and also allowed the model to work at a target speed of 30 mph. 
 
 ### Handling Latency
 The combination of parameters above allowed the controller to handle 100us latency.
